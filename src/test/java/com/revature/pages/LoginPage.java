@@ -28,8 +28,4 @@ public class LoginPage {
 		this.driver.findElement(loginLocator).click();
 	}
 	
-	public String getTitle() {
-		return this.driver.getTitle();
-	}
-	
 }
