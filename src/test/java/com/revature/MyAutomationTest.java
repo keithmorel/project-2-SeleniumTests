@@ -36,13 +36,13 @@ class MyAutomationTest {
 	
 	@AfterAll
 	static void tearDown() {
-//		driver.quit();
+		driver.quit();
 	}
 	
 	@Test
 	@Order(0)
 	void test_login_success() throws InterruptedException {
-		loginPage.typeUsername("username");
+		loginPage.typeUsername("selenium");
 		loginPage.typePassword("password");
 		
 		loginPage.clickSubmit();
@@ -56,14 +56,14 @@ class MyAutomationTest {
 	@Test
 	@Order(1)
 	void test_addStockToPortfolio_success() {
-		dashboardpage.typeStockSymbol("GOOG");
+		dashboardpage.typeStockSymbol("AAPL");
 		
 		dashboardpage.clickAddStock();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 2);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("GOOG")));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AAPL")));
 		
-		assertEquals("GOOG", dashboardpage.getStockCardId("GOOG"));
+		assertEquals("AAPL", dashboardpage.getStockCardId("AAPL"));
 	}
 
 }
